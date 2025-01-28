@@ -24,7 +24,7 @@ export function carregarFooter() {
         .map((link) => {
           let links = '';
           if (window.location.pathname !== `/pages/${link.link}`) {
-            links = `/pages/${link.link}`;
+            links = `/bikcraft-aguiar/pages/${link.link}`;
           }
           return `<a href="${links}">${link.name}</a>`;
         })
@@ -52,9 +52,9 @@ export function carregarMenu() {
       if (menuContainer) {
         menuContainer.innerHTML = menuData
           .map((item) => {
-            let linkPath = `/pages/${item.link}`;
+            let linkPath = `/bikcraft-aguiar/pages/${item.link}`;
             if (`${item.link}` === 'index.html') {
-              linkPath = `/${item.link}`;
+              linkPath = `/bikcraft-aguiar/${item.link}`;
             }
             return `<li>
                       <a href="${linkPath}">${item.name}</a>

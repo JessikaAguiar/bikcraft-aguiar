@@ -24,7 +24,7 @@ function carregarDadosHome() {
         bikesContainer.innerHTML = homeData.bikes
           .map(
             (bike) => `
-              <a href="/pages/bike.html?id=${bike.id}"><div class="bike">
+              <a href="/bikcraft-aguiar/pages/bike.html?id=${bike.id}"><div class="bike">
                 <img src="./assets/img/bicicletas/${bike.image}" alt="${bike.name}">
                 <h3>${bike.name}</h3>
                 <p>${bike.price}</p>
