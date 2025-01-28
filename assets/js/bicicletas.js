@@ -1,6 +1,6 @@
 import { preencherDadosNoDOM } from './utils.js';
 
-const JSON_PATH = `${window.location.origin}/assets/js/dados.json`;
+const JSON_PATH = '../assets/js/dados.json';
 function carregarDadosBicicletas() {
   fetch(JSON_PATH)
     .then((response) => {
