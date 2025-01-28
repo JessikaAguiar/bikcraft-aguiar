@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Bicicletas elétricas de alta precisão e qualidade, feitas sob medida para o cliente. Explore o mundo na sua velocidade com a Bikcraft Aguiar.">
-  <link href="./css/style.css" rel="stylesheet">
-  <link rel="icon" href=".assets/image/favicon.svg" type="image/svg+xml">
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -14,8 +14,41 @@
 </head>
 
 <body>
+  <nav>
+    <ul id="menu"></ul>
+  </nav>
+  <section class="hero">
+    <h1 class="hero-title"></h1>
+    <p class="hero-description"></p>
+  </section>
 
-  <script src="./js/main.js"></script>
+  <section class="bikes" id="bikes-container"></section>
+
+  <section class="technology">
+    <h2 class="technology-title"></h2>
+    <p class="technology-description"></p>
+    <div id="technology-details"></div>
+  </section>
+
+  <section class="testimonial">
+    <blockquote class="testimonial-quote"></blockquote>
+    <cite class="testimonial-author"></cite>
+  </section>
+
+  <section id="plans"></section>
+
+  <footer>
+    <div id="footer-contact">
+      <p id="footer-contact-phone"></p>
+      <p id="footer-contact-email"></p>
+      <p id="footer-contact-address"></p>
+    </div>
+    <div id="footer-links"></div>
+    <p id="footer-copy"></p>
+  </footer>
+
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/home.js"></script>
 </body>
 
 </html>
