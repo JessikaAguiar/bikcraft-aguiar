@@ -1,5 +1,5 @@
 import { preencherDadosNoDOM } from './utils.js';
-const JSON_PATH = '../assets/js/dados.json';
+const JSON_PATH = `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`;
 const urlParams = new URLSearchParams(window.location.search);
 const bikeId = urlParams.get('id');
 
