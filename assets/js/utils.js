@@ -1,4 +1,4 @@
-const JSON_PATH = `${window.location.origin}/js/dados.json`;
+const JSON_PATH = `${window.location.origin}/assets/js/dados.json`;
 export function carregarFooter() {
   fetch(JSON_PATH)
     .then((response) => {

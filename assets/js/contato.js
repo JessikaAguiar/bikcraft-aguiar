@@ -1,6 +1,6 @@
-import { preencherDadosNoDOM } from '../js/utils.js';
+import { preencherDadosNoDOM } from './utils.js';
 
-const JSON_PATH = `${window.location.origin}/js/dados.json`;
+const JSON_PATH = `${window.location.origin}/assets/js/dados.json`;
 function carregarDadosContato() {
   fetch(JSON_PATH)
     .then((response) => {

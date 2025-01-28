@@ -1,5 +1,5 @@
-import { preencherDadosNoDOM } from '../js/utils.js';
-const JSON_PATH = `${window.location.origin}/js/dados.json`;
+import { preencherDadosNoDOM } from './utils.js';
+const JSON_PATH = `${window.location.origin}/assets/js/dados.json`;
 const urlParams = new URLSearchParams(window.location.search);
 const bikeId = urlParams.get('id');
 
