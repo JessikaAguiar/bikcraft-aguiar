@@ -57,7 +57,7 @@ export function carregarMenu() {
             // TODO: alterar antes de subir `/bikcraft-aguiar/pages/${item.link}`;
             let linkPath = `/bikcraft-aguiar/pages/${item.link}`;
             if (`${item.link}` === 'index.html') {
-              linkPath = `/${item.link}`;
+              linkPath = `/bikcraft-aguiar/${item.link}`;
             }
             return `<li>
                       <a href="${linkPath}">${item.name}</a>
