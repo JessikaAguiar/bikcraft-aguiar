@@ -27,7 +27,7 @@ function carregarDadosSeguro() {
           <ul class="font-2-m cor-0">
             ${plan.features.map((feature) => `<li>${feature}</li>`).join('')}
           </ul>
-          <a class="botao" href="/bikcraft-aguiar/orcamento.html">Inscreva-se</a>
+          <a class="botao" href="/bikcraft-aguiar/pages/orcamento.html">Inscreva-se</a>
         </div>
       `;
           plansContainer.innerHTML += planItem;
