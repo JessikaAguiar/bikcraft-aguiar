@@ -1,4 +1,4 @@
-export const JSON_PATH = `/bikcraft-aguiar/assets/db/dados.json`;
+export const JSON_PATH = `${window.location.origin}/bikcraft-aguiar/assets/db/dados.json`;
 export function carregarFooter() {
   fetch(JSON_PATH)
     .then((response) => {
