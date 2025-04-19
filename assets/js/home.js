@@ -1,6 +1,4 @@
-import { preencherDadosNoDOM } from './utils.js';
-// `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`
-const JSON_PATH = `/assets/db/dados.json`;
+import { preencherDadosNoDOM, JSON_PATH } from './utils.js';
 function carregarDadosHome() {
   fetch(JSON_PATH)
     .then((response) => {
