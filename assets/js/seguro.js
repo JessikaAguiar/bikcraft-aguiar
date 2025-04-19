@@ -1,5 +1,4 @@
-import { preencherDadosNoDOM } from './utils.js';
-const JSON_PATH = `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`;
+import { preencherDadosNoDOM, JSON_PATH } from './utils.js';
 function carregarDadosSeguro() {
   fetch(JSON_PATH)
     .then((response) => {
@@ -22,12 +21,13 @@ function carregarDadosSeguro() {
       if (seguroData.plans) {
         seguroData.plans.forEach((plan) => {
           const planItem = `
-        <div class="plan">
-          <h3>${plan.type}</h3>
-          <span class="price">${plan.price}</span>
-          <ul>
+        <div class="seguros-item">
+          <h3 class="font-1-xl cor-p1">${plan.type}</h3>
+          <span class="font-1-xl cor-0">${plan.price}<span class="font-1-xs cor-6">mensal</span></span>
+          <ul class="font-2-m cor-0">
             ${plan.features.map((feature) => `<li>${feature}</li>`).join('')}
           </ul>
+          <a class="botao" href="/bikcraft-aguiar/pages/orcamento.html">Inscreva-se</a>
         </div>
       `;
           plansContainer.innerHTML += planItem;
@@ -39,10 +39,11 @@ function carregarDadosSeguro() {
         advantagesContainer.innerHTML = seguroData.advantages.items
           .map(
             (item) => `
-      <div class="advantage">
-        <h4>${item.title}</h4>
-        <p>${item.description}</p>
-      </div>
+      <li>
+        <img src="../assets/img/icones/${item.img}" alt="${item.title}">
+        <h3 class="font-1-l cor-0">${item.title}</h3>
+        <p class="font-2-s cor-5">${item.description}</p>
+      </li>
     `
           )
           .join('');
@@ -53,9 +54,9 @@ function carregarDadosSeguro() {
         faqContainer.innerHTML = seguroData.faq.items
           .map(
             (item) => `
-            <div class="faq-item">
-              <h4>${item.question}</h4>
-              <p>${item.answer}</p>
+            <div>
+              <dt class="font-1-m-b">${item.question}</dt>
+              <dd class="font-2-s cor-9">${item.answer}</dd>
             </div>
           `
           )

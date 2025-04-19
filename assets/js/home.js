@@ -1,5 +1,4 @@
-import { preencherDadosNoDOM } from './utils.js';
-const JSON_PATH = `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`;
+import { preencherDadosNoDOM, JSON_PATH } from './utils.js';
 function carregarDadosHome() {
   fetch(JSON_PATH)
     .then((response) => {
@@ -24,20 +23,20 @@ function carregarDadosHome() {
         bikesContainer.innerHTML = homeData.bikes
           .map(
             (bike) => `
-              <a href="/bikcraft-aguiar/pages/bike.html?id=${bike.id}"><div class="bike">
+              <li><a href="/bikcraft-aguiar/pages/bike.html?id=${bike.id}">
                 <img src="./assets/img/bicicletas/${bike.image}" alt="${bike.name}">
-                <h3>${bike.name}</h3>
-                <p>${bike.price}</p>
-              </div></a>
+                <h3 class="font-1-xl">${bike.name}</h3>
+                <span class="font-2-m cor-8">${bike.price}</span>
+              </a></li>
             `
           )
           .join('');
       }
       // Atualizar Tecnologia
       if (homeData.technology) {
-        document.querySelector('.technology-title').textContent =
+        document.getElementById('technology-title').textContent =
           homeData.technology.title;
-        document.querySelector('.technology-description').textContent =
+         document.getElementById('technology-description').textContent =
           homeData.technology.description;
 
         const technologyDetailsContainer =
@@ -46,8 +45,9 @@ function carregarDadosHome() {
           .map(
             (detail) => `
               <div class="detail">
-                <h4>${detail.title}</h4>
-                <p>${detail.description}</p>
+                <img src="./assets/img/icones/${detail.img}" width="24" height="24" alt="">
+                <h3 class="font-1-m cor-0">${detail.title}</h3>
+                <p class="font-2-s cor-5">${detail.description}</p>
               </div>
             `
           )
@@ -65,21 +65,23 @@ function carregarDadosHome() {
       // Atualizar Planos
       if (homeData.plans) {
         const plansContainer = document.getElementById('plans');
-        plansContainer.innerHTML = homeData.plans
+        const plansHTML = homeData.plans
           .map(
             (plan) => `
-              <div class="plan">
-                <h3>${plan.type}</h3>
-                <p>${plan.price}</p>
-                <ul>
-                  ${plan.features
-                    .map((feature) => `<li>${feature}</li>`)
-                    .join('')}
-                </ul>
-              </div>
+            <div class="seguros-item">
+              <h3 class="font-1-xl cor-6">${plan.type}</h3>
+              <span class="font-1-xl cor-0">${plan.price}</span>
+              <ul class="font-2-m cor-0">
+                ${plan.features
+                  .map((feature) => `<li>${feature}</li>`)
+                  .join('')}
+              </ul>
+              <a class="botao secundario" href="/bikcraft-aguiar/pages/orcamento.html">Inscreva-se</a>
+            </div>
             `
           )
           .join('');
+        plansContainer.insertAdjacentHTML('beforeend', plansHTML);
       }
     })
     .catch((error) =>
