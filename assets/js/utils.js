@@ -1,5 +1,4 @@
-export const JSON_PATH = `/assets/db/dados.json`;
-// `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`
+export const JSON_PATH = `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`;
 export function carregarFooter() {
   fetch(JSON_PATH)
     .then((response) => {
