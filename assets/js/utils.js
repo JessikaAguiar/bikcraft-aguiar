@@ -1,4 +1,5 @@
-const JSON_PATH = `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`;
+export const JSON_PATH = `/assets/db/dados.json`;
+// `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`
 export function carregarFooter() {
   fetch(JSON_PATH)
     .then((response) => {
@@ -17,6 +18,8 @@ export function carregarFooter() {
         footerData.contact.email;
       document.getElementById('footer-contact-address').textContent =
         footerData.contact.address;
+      document.getElementById('footer-contact-country').textContent =
+        footerData.contact.country;
 
       // Atualizar os links do footer
       const footerLinksContainer = document.getElementById('footer-links');
@@ -26,9 +29,9 @@ export function carregarFooter() {
           if (window.location.pathname !== `/pages/${link.link}`) {
             links = `/bikcraft-aguiar/pages/${link.link}`;
           }
-          return `<a href="${links}">${link.name}</a>`;
+          return `<li><a href="${links}">${link.name}</a></li>`;
         })
-        .join(' | ');
+        .join('');
 
       // Atualizar o copyright
       document.getElementById('footer-copy').textContent = footerData.copy;
@@ -52,9 +55,10 @@ export function carregarMenu() {
       if (menuContainer) {
         menuContainer.innerHTML = menuData
           .map((item) => {
+            // TODO: alterar antes de subir `/bikcraft-aguiar/pages/${item.link}`;
             let linkPath = `/bikcraft-aguiar/pages/${item.link}`;
             if (`${item.link}` === 'index.html') {
-              linkPath = `/bikcraft-aguiar/${item.link}`;
+              linkPath = `/${item.link}`;
             }
             return `<li>
                       <a href="${linkPath}">${item.name}</a>

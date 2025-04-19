@@ -27,13 +27,15 @@
       ],
       "technology": {
         "title": "Tecnologia Avançada",
-        "description": "Você escolhe as suas cores e componentes.",
+        "description": "Cada Bikcraft é única e possui a sua identidade. As medidas serão exatas para o seu corpo e altura, garantindo maior conforto e ergonomia na sua pedalada. Você pode também personalizar completamente as suas cores.",
         "details": [
           {
+            "img":"eletrica.svg",
             "title": "Motor Elétrico",
             "description": "Cada Bikcraft é equipada com um motor elétrico que possui incrível potência e autonomia para sua energia gastar ao pedalar."
           },
           {
+            "img":"rastreador.svg",
             "title": "Rastreador",
             "description": "Para sua segurança, todos os nossos modelos possuem rastreador integrado com localização em tempo real."
           }
@@ -82,10 +84,10 @@
           "price": "R$ 4999",
           "description": "A Nimbus Stark é a melhor Bikcraft já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade.",
           "features": [
-            "Motor Elétrico",
-            "Fibra de Carbono",
-            "40 km/h",
-            "Rastreador"
+            {"title": "Motor Elétrico", "img":"eletrica.svg", "description":"Permite você viajar distâncias inimaginaveis com a sua bike."},
+            {"title": "Fibra de Carbono", "img":"carbono.svg", "description":"Maior proteção possível para a sua Bikcraft com fibra de carbono."},
+            {"title": "40 km/h", "img":"velocidade.svg", "description":"A mais rápida bicicleta elétrica disponível hoje no mercado."},
+            {"title":  "Rastreador", "img":"rastreador.svg", "description":"Rastreador e sistema anti-furto para garantir o seu sossego."}
           ],
           "image": "nimbus1.jpg",
           "technicalDetails": {
@@ -103,10 +105,10 @@
           "price": "R$ 2499",
           "description": "A Magic Might é a melhor Bikcraft já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade.",
           "features": [
-            "Motor Elétrico",
-            "Fibra de Carbono",
-            "40 km/h",
-            "Rastreador"
+            {"title": "Motor Elétrico", "img":"eletrica.svg", "description":"Permite você viajar distâncias inimaginaveis com a sua bike."},
+            {"title": "Fibra de Carbono", "img":"carbono.svg", "description":"Maior proteção possível para a sua Bikcraft com fibra de carbono."},
+            {"title": "40 km/h", "img":"velocidade.svg", "description":"A mais rápida bicicleta elétrica disponível hoje no mercado."},
+            {"title":  "Rastreador", "img":"rastreador.svg", "description":"Rastreador e sistema anti-furto para garantir o seu sossego."}
           ],
           "image": "nimbus2.jpg",
           "technicalDetails": {
@@ -124,10 +126,10 @@
           "price": "R$ 3999",
           "description": "A Nebula Cosmic é a melhor Bikcraft já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade.",
           "features": [
-            "Motor Elétrico",
-            "Fibra de Carbono",
-            "40 km/h",
-            "Rastreador"
+            {"title": "Motor Elétrico", "img":"eletrica.svg", "description":"Permite você viajar distâncias inimaginaveis com a sua bike."},
+            {"title": "Fibra de Carbono", "img":"carbono.svg", "description":"Maior proteção possível para a sua Bikcraft com fibra de carbono."},
+            {"title": "40 km/h", "img":"velocidade.svg", "description":"A mais rápida bicicleta elétrica disponível hoje no mercado."},
+            {"title":  "Rastreador", "img":"rastreador.svg", "description":"Rastreador e sistema anti-furto para garantir o seu sossego."}
           ],
           "image": "nimbus3.jpg",
           "technicalDetails": {
@@ -177,31 +179,37 @@
         "items": [
           {
             "id": "7f077bee-8db8-42e6-aa64-5ea1b4046db8",
+            "img":"eletrica.svg",
             "title": "Reparo Elétrico",
             "description": "Garantimos o reparo completo do seu motor em caso de falhas. Sabemos que falhas são raras, mas estamos aqui para caso ocorra."
           },
           {
             "id": "b04aef90-e2bb-4e6c-96ee-7ab236c2c2cd",
-            "title": "Reparo Estrutural",
+            "img":"carbono.svg",
+            "title": "Caborno",
             "description": "Nossos quadros são feitos para durar para sempre. Mas caso algo ocorra, ficamos felizes em reparar."
           },
           {
             "id": "07443345-8408-4dd5-8178-3ad1cff16da4",
+            "img":"sustentavel.svg",
             "title": "Sustentável",
             "description": "Trabalhamos com a filosofia de desperdício zero. Qualquer parte defeituosa é reciclada e reutilizada em outro projeto."
           },
           {
             "id": "36078af3-284d-4570-bfe3-6e9ad28493b6",
+            "img":"rastreador.svg",
             "title": "Recuperação",
             "description": "A sua Bikcraft ficará pronta para uso no mesmo dia, caso você traga ela para ser reparada em uma das filiais."
           },
           {
             "id": "b46785d7-5bf4-406d-a152-0513d05635f7",
+            "img":"seguro.svg",
             "title": "Segurança",
             "description": "A sua Bikcraft ficará pronta para uso no mesmo dia, caso você traga ela para ser reparada em uma das filiais."
           },
           {
             "id": "0fc4ad71-bbe7-4a0a-be3d-1f7aba1ae9e8",
+            "img":"velocidade.svg",
             "title": "Rapidez",
             "description": "A sua Bikcraft ficará pronta para uso no mesmo dia, caso você traga ela para ser reparada em uma das filiais."
           }
@@ -336,7 +344,8 @@
       "contact": {
         "phone": "+55 21 9999-9999",
         "email": "contato@bikcraft.com",
-        "address": "Rua Ali Perto, 42 - Botafogo - Rio de Janeiro - RJ"
+        "address": "Rua Ali Perto, 42 - Botafogo",
+        "country": "Rio de Janeiro - RJ"
       },
       "links": [
         { "name": "Bicicletas", "link": "bicicletas.html" },

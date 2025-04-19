@@ -1,5 +1,4 @@
-import { preencherDadosNoDOM } from './utils.js';
-const JSON_PATH = `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`;
+import { preencherDadosNoDOM, JSON_PATH } from './utils.js';
 function carregarDadosTermos() {
   fetch(JSON_PATH)
     .then((response) => {
@@ -23,7 +22,7 @@ function carregarDadosTermos() {
       if (termosData.terms) {
         termosData.terms.forEach((term) => {
           const termSection = `
-        <div class="term-section">
+        <div>
           <h2>${term.title}</h2>
           <ul>
             ${term.items.map((item) => `<li>${item}</li>`).join('')}

@@ -1,5 +1,4 @@
-import { preencherDadosNoDOM } from './utils.js';
-const JSON_PATH = `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`;
+import { preencherDadosNoDOM, JSON_PATH } from './utils.js';
 const urlParams = new URLSearchParams(window.location.search);
 const bikeId = urlParams.get('id');
 
@@ -24,14 +23,25 @@ function carregarDadosBike() {
 
           preencherDadosNoDOM(bike, selectors);
 
-          const bikeImage = document.getElementById('bike-image');
-          bikeImage.src = `../assets/img/bicicleta/${bike.image}`;
-          bikeImage.alt = bike.name;
+          const bikesOrdenadas = [
+            ...bikes.filter(b => b.id === bikeId),
+            ...bikes.filter(b => b.id !== bikeId),
+          ];
+
+          const bikeImagesContainer  = document.getElementById('bike-image');
+          bikeImagesContainer.innerHTML = bikesOrdenadas.map((bike) => 
+            `<img src="../assets/img/bicicleta/${bike.image}" alt="${bike.name}">`
+          ).join('');
 
           // Renderizar os recursos
           const featuresList = document.getElementById('bike-features');
           featuresList.innerHTML = bike.features
-            .map((feature) => `<li>${feature}</li>`)
+            .map((feature) => `
+            <li>
+              <img src="../assets/img/icones/${feature.img}" alt="${feature.title}">
+              <h3 class="font-1-m cor-0">${feature.title}</h3>
+              <p class="font-2-xs cor-5">${feature.description}</p>
+            </li>`)
             .join('');
 
           // Renderizar os detalhes técnicos
@@ -40,8 +50,24 @@ function carregarDadosBike() {
             'bike-technical-details'
           );
           technicalDetailsContainer.innerHTML = Object.entries(technicalDetails)
-            .map(([key, value]) => `<p><strong>${key}:</strong> ${value}</p>`)
+            .map(([key, value]) => `<li>${key}: <span>${value}</span></li>`)
             .join('');
+
+
+          const otherBikes = [
+            ...bikes.filter(b => b.id !== bikeId),
+          ];
+
+          const otherBikeImagesContainer  = document.getElementById('other-bikes');
+          otherBikeImagesContainer.innerHTML = otherBikes.map((bike) => 
+            `<li>
+                <a href="/bikcraft-aguiar/pages/bike.html?id=${bike.id}">
+                  <img src="../assets/img/bicicleta/${bike.image}" alt="">
+                  <h3 class="font-1-xl">${bike.name}</h3>
+                  <span class="font-2-m cor-8">R$ ${bike.price}</span>
+                </a>
+            </li>`
+          ).join('');
         } else {
           document.getElementById('bike-details').innerHTML =
             '<p>Bicicleta não encontrada.</p>';

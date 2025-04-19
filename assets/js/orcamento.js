@@ -1,5 +1,4 @@
-import { preencherDadosNoDOM } from './utils.js';
-const JSON_PATH = `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`;
+import { preencherDadosNoDOM, JSON_PATH } from './utils.js';
 function carregarDadosOrcamento() {
   fetch(JSON_PATH)
     .then((response) => {

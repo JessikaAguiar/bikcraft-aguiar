@@ -1,6 +1,5 @@
-import { preencherDadosNoDOM } from './utils.js';
+import { preencherDadosNoDOM, JSON_PATH } from './utils.js';
 
-const JSON_PATH = `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`;
 function carregarDadosBicicletas() {
   fetch(JSON_PATH)
     .then((response) => {
@@ -22,18 +21,47 @@ function carregarDadosBicicletas() {
       if (bicicletasData.bikes) {
         const bikeContainer = document.querySelector('.bike-list');
 
-        bicicletasData.bikes.forEach((bike) => {
-          const bikeItem = `
-        <div class="bike-item">
-          <img src="../assets/img/bicicleta/${bike.image}" alt="${bike.name}">
-          <h2>${bike.name}</h2>
-          <p>${bike.description}</p>
-          <ul>
-            ${bike.features.map((feature) => `<li>${feature}</li>`).join('')}
-          </ul>
-          <span class="price">${bike.price}</span>
-        </div>
-      `;
+        bicicletasData.bikes.forEach((bike, index) => {
+          let bikeItem = '';
+          if(index == 1) {
+             bikeItem = `
+              <div class="bicicletas-bg">
+                <div class="bicicletas container item">
+                  <div class="bicicletas-imagem">
+                    <img src="../assets/img/bicicleta/${bike.image}" alt="${bike.name}">
+                    <span class="font-2-m cor-0">${bike.price}</span>
+                  </div>
+                  <div class="bicicletas-conteudo">
+                    <h2 class="font-1-xl cor-0">${bike.name}</h2>
+                    <p class="font-2-s cor-5">${bike.description}</p>
+                    <ul class="font-1-m cor-5">
+                      ${bike.features.map((feature) => `<li><img src="../assets/img/icones/${feature.img}">${feature.title}</li>`).join('')}
+                    </ul>
+                    <a class="botao seta" href="./bike.html?id=${bike.id}">Mais Sobre</a>
+                  </div>
+                </div>
+              </div>
+            `;
+
+          } else {
+          bikeItem = `
+              <div class="bicicletas container item">
+                <div class="bicicletas-imagem">
+                <img src="../assets/img/bicicleta/${bike.image}" alt="${bike.name}">
+                <span class="font-2-m cor-0">${bike.price}</span>
+                </div>
+                <div class="bicicletas-conteudo">
+                  <h2 class="font-1-xl">${bike.name}</h2>
+                  <p class="font-2-s cor-8">${bike.description}</p>
+                  <ul class="font-1-m cor-8">
+                    ${bike.features.map((feature) => `<li><img src="../assets/img/icones/${feature.img}">${feature.title}</li>`).join('')}
+                  </ul>
+                  <a class="botao seta" href="./bike.html?id=${bike.id}">Mais Sobre</a>
+                </div>
+              </div>
+            `;
+          }
+         
           bikeContainer.innerHTML += bikeItem;
         });
       }

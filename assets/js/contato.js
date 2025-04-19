@@ -1,6 +1,4 @@
-import { preencherDadosNoDOM } from './utils.js';
-
-const JSON_PATH = `${window.location.origin}/bikcraft-aguiar/assets/js/dados.json`;
+import { preencherDadosNoDOM, JSON_PATH } from './utils.js';
 function carregarDadosContato() {
   fetch(JSON_PATH)
     .then((response) => {
@@ -22,13 +20,14 @@ function carregarDadosContato() {
         const selectors = {
           title: '.contact-title',
           address: '.contact-address',
-          phone: '.contact-phone',
         };
         preencherDadosNoDOM(contatosData.contactInfo, selectors);
 
+        document.querySelector('.contact-phone').innerHTML =`<a href="tel:${contatosData.contactInfo.phone}">${contatosData.contactInfo.phone}</a>`;
+
         document.querySelector('.contact-email').innerHTML =
           contatosData.contactInfo.emails
-            .map((email) => `<p>${email}</p>`)
+            .map((email) => `<a href="mailto:${email}">${email}</a>`)
             .join('');
       }
 
@@ -37,13 +36,20 @@ function carregarDadosContato() {
         storesContainer.innerHTML = contatosData.localStores.locations
           .map(
             (location) => `
-        <div class="store">
-          <h3>${location.city}</h3>
-          <p>${location.address}</p>
-          <p>${location.email}</p>
-          <p>${location.phone}</p>
-          <p>${location.hours}</p>
+        <div class="lojas-item">
           <img src="../assets/img/lojas/${location.map}" alt="Mapa de ${location.city}">
+          <div class="lojas-conteudo">
+            <h3 class="font-1-xl">${location.city}</h3>
+            <div class="lojas-dados font-2-s cor-8">
+              <p>${location.address}</p>
+            </div>
+            <div class="lojas-dados font-2-s cor-8">
+              <a href="mailto:${location.email}">${location.email}</a>
+              <a href="tel:${location.phone}">${location.phone}</a>
+            </div>
+            
+            <p class="lojas-tempo font-1-s"><img src="../assets/img/icones/horario.svg" alt="">${location.hours}</p>
+          </div>
         </div>
       `
           )
